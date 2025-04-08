@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.Set;
 
-public class WindowsHandling {
+public class WindowHandle {
 
     WebDriver driver;
 
@@ -29,11 +29,13 @@ public class WindowsHandling {
     public void TestWindowHandles() throws InterruptedException {
         driver.get("https://demo.automationtesting.in/Windows.html");
 
+        driver.findElement(By.xpath("//a[text()='Open New Seperate Windows']")).click();
         // Store the parent window handle before clicking
         String parentWindow = driver.getWindowHandle();
 
         // Click to open new window
-        WebElement clickButton = driver.findElement(By.xpath("//button[text()='    click   ']"));
+        WebElement clickButton = driver.findElement(By.xpath("//button[text()='click']"));
+        Thread.sleep(5000);
         clickButton.click();
 
         // Wait briefly to let the new window open
